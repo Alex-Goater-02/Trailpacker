@@ -1,0 +1,109 @@
+/* Main */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+  background: linear-gradient(to bottom right, #174f4c, #1B5C57, #1E6F6B);
+  padding: 10px 20px;
+  position: relative;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3vh;
+  background: linear-gradient(to bottom right, #174f4c, #1B5C57, #1E6F6B);
+  clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 70%);
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-link img {
+  height: 200px;
+  width: auto;
+  margin-right: 10px;
+  filter: drop-shadow(2px 2px 7px rgba(0, 0, 0, 0.5));
+  transition: filter 0.3s ease, transform 0.3s ease;
+  ;
+}
+
+.logo-link img:hover {
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 1));
+  transform: scale(1.05);
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: ;
+  padding: 8px 12px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: ;
+  color: ;
+}
+
+/* Hero */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+  padding: 20px;
+  background-image: url("images/trailpacker-banner.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.hero-container {
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.hero-container h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #2B2E2D;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.hero-container p {
+  font-size: 1.25rem;
+  color: #2B2E2D;
+  line-height: 1.6;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
