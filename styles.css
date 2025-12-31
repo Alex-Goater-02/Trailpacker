@@ -4,6 +4,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 /* Navbar */
@@ -12,7 +28,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 200px;
+  height: 100px;
   width: 100%;
   background: linear-gradient(to bottom right, #174f4c, #1B5C57, #1E6F6B);
   padding: 10px 20px;
@@ -23,11 +39,11 @@
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 0;\
   width: 100%;
   height: 3vh;
   background: linear-gradient(to bottom right, #174f4c, #1B5C57, #1E6F6B);
-  clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 70%);
+  clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 90%);
 }
 
 .logo-link {
@@ -37,16 +53,19 @@
 }
 
 .logo-link img {
-  height: 200px;
+  height: 150px;
   width: auto;
   margin-right: 10px;
-  filter: drop-shadow(2px 2px 7px rgba(0, 0, 0, 0.5));
+  filter:
+    drop-shadow(0 2px 80px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 10px rgba(72, 210, 200, 0.35));
+
   transition: filter 0.3s ease, transform 0.3s ease;
-  ;
 }
 
 .logo-link img:hover {
-  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 1));
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8))
+          drop-shadow(0 0 40px rgba(0, 255, 255, 0.4));
   transform: scale(1.05);
 }
 
@@ -90,7 +109,7 @@
   width: 100%;
   padding: 40px;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .hero-container h1 {
@@ -107,3 +126,103 @@
   line-height: 1.6;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* Footer */
+
+.site-footer {
+  background: #e7e8ed; /*Change for gradient*/
+  border-top: solid 2.5px #2B2E2D;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /*What is this?*/
+  margin: 40px auto;
+  gap: 40px;
+  max-width: 1200px; /*Might delete*/
+  padding: 0px 20px;
+}
+
+.footer-block {
+  color: #898b96;
+  text-align: center;
+}
+
+.footer-block h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-block ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-block a {
+  color: inherit;
+  font-size: 15px;
+  line-height: 32px;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.footer-block a:hover {
+  color: #34bfa3;
+}
+
+#footer-logo {
+  height: 100px;
+  width: auto;
+  margin: auto;
+  filter:
+    drop-shadow(0 2px 80px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 10px rgba(72, 210, 200, 0.35));
+
+  transition: filter 0.3s ease, transform 0.3s ease;
+  display: block;
+}
+
+#footer-logo:hover {
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8))
+          drop-shadow(0 0 40px rgba(0, 255, 255, 0.4));
+  transform: scale(1.05);
+}
+
+.footer-block-svg img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  filter: grayscale(40%) brightness(90%);
+}
+
+.footer-block-svg img:hover {
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8))
+          drop-shadow(0 0 40px rgba(0, 255, 255, 0.4));
+  transform: scale(1.05);
+}
+
+.mini-footer {
+  background: #323232;
+  text-align: center;
+  padding: 24px 20px;
+  width: 100%;
+}
+
+.mini-footer p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 26px;
+  color: #999;
+}
+
+.mini-footer a {
+  color: #34bfa3;
+  transition: color 0.3s;
+}
+
+.mini-footer a:hover {
+  color: #00FFFF;
+}
+
+
