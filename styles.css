@@ -1,3 +1,39 @@
+/* Root Variables */
+
+:root {
+
+  /* Colours */
+  --green-1: #174f4c;
+  --green-2: #1B5C57;
+  --green-3: #1E6F6B;
+  --dark: #2B2E2D;
+  --accent: #34bfa3;
+
+  /* Gradients */
+  --gradient-main: linear-gradient(
+    120deg,
+    var(--green-1),
+    var(--green-2),
+    var(--green-3),
+    var(--green-1)
+  );
+
+  /* Motion */
+  --gradient-size: 200% 200%;
+  --gradient-fast: 14s;
+  --gradient-slow: 15s;
+
+  /* Shadows */
+  --card-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  --glow-shadow:
+    drop-shadow(0 0 20px rgba(0, 255, 255, 0.8))
+    drop-shadow(0 0 40px rgba(0, 255, 255, 0.4));
+
+  /* Transitions */
+  --ease-fast: 0.2s ease;
+  --ease-medium: 0.3s ease;
+}
+
 /* Main */
 
 * {
@@ -7,7 +43,8 @@
   font-family: 'Manrope', sans-serif;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -30,19 +67,29 @@ main {
   align-items: center;
   height: 100px;
   width: 100%;
-  background: linear-gradient(to bottom right, #174f4c, #1B5C57, #1E6F6B);
   padding: 10px 20px;
   position: relative;
+
+  background: var(--gradient-main);
+  background-size: var(--gradient-size);
+  animation: gradient-drift var(--gradient-fast) ease-in-out infinite;
 }
 
 .navbar::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;\
+  left: 0;
   width: 100%;
   height: 3vh;
-  background: linear-gradient(to bottom right, #174f4c, #1B5C57, #1E6F6B);
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),
+    var(--gradient-main);
+
+  background-size: 100% 100%, var(--gradient-size);
+  animation: gradient-drift var(--gradient-fast) ease-in-out infinite;
+
   clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 90%);
 }
 
@@ -57,15 +104,13 @@ main {
   width: auto;
   margin-right: 10px;
   filter:
-    drop-shadow(0 2px 80px rgba(0, 0, 0, 0.45))
-    drop-shadow(0 0 10px rgba(72, 210, 200, 0.35));
+    drop-shadow(0 2px 80px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 10px rgba(72, 210, 200, 0.35));
 
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .logo-link img:hover {
-  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8))
-          drop-shadow(0 0 40px rgba(0, 255, 255, 0.4));
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(0, 255, 255, 0.4));
   transform: scale(1.05);
 }
 
@@ -82,14 +127,14 @@ main {
 
 .nav-links a {
   text-decoration: none;
-  color: ;
+  color: white; /* Temporary */
   padding: 8px 12px;
   transition: background-color 0.3s;
 }
 
 .nav-links a:hover {
   background-color: ;
-  color: ;
+  color: white; /* Temporary */
 }
 
 /* Hero */
@@ -127,19 +172,77 @@ main {
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Trending Container */
+
+.trending-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25vh;
+}
+
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  width: 90%;
+  padding: 15px;
+
+  background: var(--gradient-main);
+  background-size: var(--gradient-size);
+  animation: gradient-drift var(--gradient-slow) ease-in-out infinite;
+
+  border: 2.5px solid var(--dark);
+  border-radius: 18px;
+}
+
+.outer-container h2 {
+  font-size: 1.25rem;
+  margin: 0 0 10px;
+  color: white;
+}
+
+.inner-wrapper {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+}
+
+.inner-container {
+  flex: 1;
+  background: white;
+  border: 1px solid var(--dark);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.inner-content {
+  height: 100%;
+  width: 100%;
+  transition: transform var(--ease-fast), box-shadow var(--ease-fast);
+}
+
+.inner-container:hover .inner-content {
+  transform: scale(1.05);
+  box-shadow: var(--card-shadow);
+}
+
 /* Footer */
 
 .site-footer {
-  background: #e7e8ed; /*Change for gradient*/
+  background: #e7e8ed;
+  /*Change for gradient*/
   border-top: solid 2.5px #2B2E2D;
 }
 
 .footer-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /*What is this?*/
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /*What is this?*/
   margin: 40px auto;
   gap: 40px;
-  max-width: 1200px; /*Might delete*/
+  max-width: 1200px;
+  /*Might delete*/
   padding: 0px 20px;
 }
 
@@ -149,7 +252,12 @@ main {
 }
 
 .footer-block h4 {
-  font-size: 18px;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.footer-block h5 {
+  font-size: 1rem;
   margin-bottom: 10px;
 }
 
@@ -160,7 +268,7 @@ main {
 
 .footer-block a {
   color: inherit;
-  font-size: 15px;
+  font-size: 0.75rem;
   line-height: 32px;
   transition: color 0.3s;
   text-decoration: none;
@@ -175,30 +283,27 @@ main {
   width: auto;
   margin: auto;
   filter:
-    drop-shadow(0 2px 80px rgba(0, 0, 0, 0.45))
-    drop-shadow(0 0 10px rgba(72, 210, 200, 0.35));
+    drop-shadow(0 2px 80px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 10px rgba(72, 210, 200, 0.35));
 
   transition: filter 0.3s ease, transform 0.3s ease;
   display: block;
 }
 
 #footer-logo:hover {
-  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8))
-          drop-shadow(0 0 40px rgba(0, 255, 255, 0.4));
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(0, 255, 255, 0.4));
   transform: scale(1.05);
 }
 
 .footer-block-svg img {
-  width: 25px;
-  height: 25px;
+  width: 18px;
+  height: 18px;
   cursor: pointer;
   transition: filter 0.3s ease;
   filter: grayscale(40%) brightness(90%);
 }
 
 .footer-block-svg img:hover {
-  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8))
-          drop-shadow(0 0 40px rgba(0, 255, 255, 0.4));
+  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(0, 255, 255, 0.4));
   transform: scale(1.05);
 }
 
@@ -211,7 +316,7 @@ main {
 
 .mini-footer p {
   margin: 0;
-  font-size: 15px;
+  font-size: 0.75rem;
   line-height: 26px;
   color: #999;
 }
@@ -225,4 +330,25 @@ main {
   color: #00FFFF;
 }
 
+/* Animations */
 
+@keyframes gradient-drift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
